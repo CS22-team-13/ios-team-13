@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let n = NetworkController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        n.getStatus()
+        
     }
 
 
