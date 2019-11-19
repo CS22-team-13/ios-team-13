@@ -14,6 +14,8 @@
 		C45642D22383A80500393357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45642D12383A80500393357 /* Assets.xcassets */; };
 		C45642D52383A80500393357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45642D32383A80500393357 /* LaunchScreen.storyboard */; };
 		C45642DD2383A87800393357 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45642DC2383A87800393357 /* NetworkController.swift */; };
+		C45642DF2383B28C00393357 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45642DE2383B28C00393357 /* Status.swift */; };
+		C45642E32383B81400393357 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45642E22383B81400393357 /* Room.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		C45642D42383A80500393357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C45642D62383A80500393357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C45642DC2383A87800393357 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		C45642DE2383B28C00393357 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		C45642E22383B81400393357 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +65,31 @@
 				C45642C82383A80000393357 /* AppDelegate.swift */,
 				C45642CA2383A80000393357 /* SceneDelegate.swift */,
 				C45642CC2383A80000393357 /* ViewController.swift */,
-				C45642DC2383A87800393357 /* NetworkController.swift */,
+				C45642E42383BA6D00393357 /* Models */,
+				C45642E52383BA8800393357 /* Network */,
 				C45642CE2383A80000393357 /* Main.storyboard */,
 				C45642D12383A80500393357 /* Assets.xcassets */,
 				C45642D32383A80500393357 /* LaunchScreen.storyboard */,
 				C45642D62383A80500393357 /* Info.plist */,
 			);
 			path = "cs-build-week-2";
+			sourceTree = "<group>";
+		};
+		C45642E42383BA6D00393357 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C45642DE2383B28C00393357 /* Status.swift */,
+				C45642E22383B81400393357 /* Room.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C45642E52383BA8800393357 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C45642DC2383A87800393357 /* NetworkController.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C45642DD2383A87800393357 /* NetworkController.swift in Sources */,
+				C45642DF2383B28C00393357 /* Status.swift in Sources */,
+				C45642E32383B81400393357 /* Room.swift in Sources */,
 				C45642CD2383A80000393357 /* ViewController.swift in Sources */,
 				C45642C92383A80000393357 /* AppDelegate.swift in Sources */,
 				C45642CB2383A80000393357 /* SceneDelegate.swift in Sources */,
