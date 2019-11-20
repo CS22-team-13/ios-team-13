@@ -14,10 +14,11 @@ class ViewController: UIViewController {
     
     @IBOutlet var roomTextView: UITextView!
     
+    @IBOutlet var coolDownLabel: UILabel!
     @IBOutlet var statusTextView: UITextView!
     let networkController = NetworkController()
     
-    
+    var timer: Timer? = nil
     
     var status: Status? {
         didSet { setupStatus() }
@@ -43,8 +44,8 @@ class ViewController: UIViewController {
             }
         }
         
-
         
+        startCoolDown(5)
     }
     
     
@@ -81,12 +82,16 @@ class ViewController: UIViewController {
         let items = compactlist(room.items)
         let messages = compactlist(room.items)
         
-        roomTextView.text = "Coooldown: \(room.cooldown)\n\nExits: \(exits)\n\nItems: \(items)\n\nDescription: \(room.description)\n\n\nCoordinates: \(room.coordinates)\n\nElevation: \(room.elevation)\n\nErrors: \(errors)\n\nMessages: \(messages)"
+        roomTextView.text = "Exits: \(exits)\n\nItems: \(items)\n\nDescription: \(room.description)\n\n\nCoordinates: \(room.coordinates)\n\nElevation: \(room.elevation)\n\nErrors: \(errors)\n\nMessages: \(messages)"
     }
     
     
 
     @IBAction func nsweButtonPressed(_ sender: UIButton) {
+        if timer != nil {
+            return
+        }
+        
         let tag = sender.tag
         var direction = ""
         switch tag {
@@ -111,11 +116,29 @@ class ViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.room = room
+                self.startCoolDown(room.cooldown)
+            }
+        }
+    }
+    
+    func startCoolDown(_ coolDown: Double) {
+        var count = 0
+        coolDownLabel.text = "CoolDown: \(coolDown)"
+        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            
+            if count == Int(coolDown) {
+                self.coolDownLabel.text = "CoolDown: 0"
+                timer.invalidate()
+
+            }else {
+                self.coolDownLabel.text = "CoolDown: \(Int(coolDown) - count)"
+                count += 1
+                
             }
         }
         
-    
     }
+    
     
     @IBAction func statusButtonPressed(_ sender: Any) {
         networkController.getStatus { status, error in
